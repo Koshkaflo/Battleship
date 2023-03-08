@@ -1,5 +1,5 @@
 /*
-простой вариант игры 
+1 variant (simple version)
 var randomLoc = Math.floor(Math.random() * 5);
 var location1 = randomLoc;
 var location2 = location1 + 1;
@@ -32,3 +32,35 @@ while (isSunk == false) {
 }
 var stats = 'you took ' + guesses + ' guesses to sink the battleship, ' + 'which means your shooting accuracy was ' + (3/guesses);
 alert(stats);*/
+
+
+
+//2 variant (full version)
+
+let view = {
+    displayMessage: function(msg) {
+        let messageArea = document.getElementById('messageArea');
+        messageArea.innerHTML = msg;
+    },
+    displayHit: function(location) {
+        let cell = document.getElementById(location);
+        cell.setAttribute('class', 'hit');
+    },
+    displayMiss: function(location) {
+        let cell = document.getElementById(location);
+        cell.setAttribute('class', 'miss');
+    }
+};
+
+
+
+//test
+
+view.displayMiss('00');
+view.displayHit('34');
+view.displayMiss('55');
+view.displayHit('12');
+view.displayMiss('25');
+view.displayHit('26');
+
+view.displayMessage('Tap tap, is this thing on?');
