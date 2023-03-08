@@ -1,3 +1,5 @@
+/*
+простой вариант игры 
 var randomLoc = Math.floor(Math.random() * 5);
 var location1 = randomLoc;
 var location2 = location1 + 1;
@@ -29,4 +31,4 @@ while (isSunk == false) {
     }
 }
 var stats = 'you took ' + guesses + ' guesses to sink the battleship, ' + 'which means your shooting accuracy was ' + (3/guesses);
-alert(stats);
+alert(stats);*/
