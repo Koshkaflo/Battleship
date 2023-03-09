@@ -135,7 +135,7 @@ let controller = {
             this.guesses++;
             let hit = model.fire(location);
             if (hit && model.shipSunk === model.numShips) {
-                view.displayMessage('You sank all my battleships, in ' + this.guesses + 'guesses');
+                view.displayMessage('You sank all my battleships, in ' + this.guesses + ' guesses');
             }
         }
     }
@@ -192,10 +192,23 @@ console.log(parseGuess('A7'));
 function init() {
     let fireButton = document.getElementById('fireButton');
     fireButton.onclick = handleFireButton;
+    let guessInput = document.getElementById('guessInput');
+    guessInput.onkeydown = handleKeyPress;
 };
 
 function handleFireButton() {
-
+    let guessInput = document.getElementById('guessInput');
+    let guess = guessInput.value;
+    controller.processGuess(guess);
+    guessInput.value = '';
 };
 
 window.onload = init;
+
+function handleKeyPress(E) {
+    let fireButton = document.getElementById('fireButton');
+    if (E.keyCode === 13) {
+        fireButton.click();
+        return false;
+    }
+};
