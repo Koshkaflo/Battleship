@@ -130,9 +130,33 @@ model.fire('10');
 let controller = {
     guesses: 0,
     processGuess: function(guess) {
-
+        let location = parseGuess(guess);
+        if (location) {
+            this.guesses++;
+            let hit = model.fire(location);
+            if (hit && model.shipSunk === model.numShips) {
+                view.displayMessage('You sank all my battleships, in ' + this.guesses + 'guesses');
+            }
+        }
     }
 };
+
+//test
+controller.processGuess('A0');
+
+controller.processGuess('A6');
+controller.processGuess('B6');
+controller.processGuess('C6');
+
+controller.processGuess('C4');
+controller.processGuess('D4');
+controller.processGuess('E4');
+
+controller.processGuess('B0');
+controller.processGuess('B1');
+controller.processGuess('B2');
+
+
 
 function parseGuess (guess) {
     let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
