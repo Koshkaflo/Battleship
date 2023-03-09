@@ -153,3 +153,13 @@ function parseGuess (guess) {
     }
     return null;
 };
+
+//test
+/*
+console.log(parseGuess('A0'));
+console.log(parseGuess('b6'));
+console.log(parseGuess('B6'));
+console.log(parseGuess('G3'));
+console.log(parseGuess('H0'));
+console.log(parseGuess('A7'));
+*/
