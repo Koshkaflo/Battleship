@@ -31,7 +31,8 @@ while (isSunk == false) {
     }
 }
 var stats = 'you took ' + guesses + ' guesses to sink the battleship, ' + 'which means your shooting accuracy was ' + (3/guesses);
-alert(stats);*/
+alert(stats);
+*/
 
 
 
@@ -84,15 +85,20 @@ let model = {
             let index = ship.locations.indexOf(guess);
             if (index >= 0) {
                 ship.hits[index] = 'hit';
+                view.displayHit(guess);
+                view.displayMessage('HIT!');
                 if (this.isSunk(ship)) {
+                    view.displayMessage('You sank my battleship!');
                     this.shipSunk++;
                 }
                 return true;
             }
         }
+        view.displayMiss(guess);
+        view.displayMessage('You missed.')
         return false;
     },
-    
+
     isSunk: function(ship) {
         for (let i = 0; i < this.shipLength; i++) {
             if (ship.hits[i] !== 'hit') {
@@ -102,4 +108,23 @@ let model = {
         return true;
     }
 };
+
+//test
+/*
+model.fire('53');
+
+model.fire('06');
+model.fire('16');
+model.fire('26');
+
+model.fire('34');
+model.fire('24');
+model.fire('44');
+
+model.fire('11');
+model.fire('12');
+model.fire('10');
+*/
+
+
 
