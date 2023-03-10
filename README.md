@@ -1,3 +1,3 @@
 Battleship game based on JS, HTML, CSS.
 
-My own design of gameboard.
+My own design of playboard.
