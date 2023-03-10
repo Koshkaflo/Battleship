@@ -64,7 +64,7 @@ var model = {
 			var ship = this.ships[i];
 			var index = ship.locations.indexOf(guess);
 
-			// here's an improvement! Check to see if the ship
+			// Check to see if the ship
 			// has already been hit, message the user, and return true.
 			if (ship.hits[index] === "hit") {
 				view.displayMessage("Oops, you already hit that location!");
@@ -218,8 +218,6 @@ function handleFireButton() {
 function handleKeyPress(e) {
 	var fireButton = document.getElementById("fireButton");
 
-	// in IE9 and earlier, the event object doesn't get passed
-	// to the event handler correctly, so we use window.event instead.
 	e = e || window.event;
 
 	if (e.keyCode === 13) {
